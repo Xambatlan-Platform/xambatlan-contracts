@@ -21,6 +21,8 @@ contract UserRegistry is Ownable, ReentrancyGuard {
     enum UserStatus {
         Inactive,       // Usuario inactivo
         Active,         // Usuario activo
+        Suspended,      // Usuario suspendido
+        Banned          // Usuario baneado
     }
     
     struct UserProfile {

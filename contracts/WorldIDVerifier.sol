@@ -64,7 +64,7 @@ contract WorldIDVerifier is Ownable, ReentrancyGuard {
     error UserAlreadyVerified(address user);
     error UserNotVerified(address user);
     error WorldIdAlreadyUsed(string worldIdHash);
-    error VerificationExpired(address user);
+    error UserVerificationExpired(address user);
     error InvalidWorldIdHash(string worldIdHash);
     error UnauthorizedAccess();
     
@@ -80,7 +80,7 @@ contract WorldIDVerifier is Ownable, ReentrancyGuard {
         address user,
         string memory worldIdHash,
         string memory metadata
-    ) external onlyOwner nonReentrant {
+    ) public onlyOwner nonReentrant {
         // Validaciones
         if (bytes(worldIdHash).length == 0) revert InvalidWorldIdHash(worldIdHash);
         if (isVerified[user]) revert UserAlreadyVerified(user);

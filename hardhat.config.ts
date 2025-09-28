@@ -9,6 +9,13 @@ const config: HardhatUserConfig = {
     profiles: {
       default: {
         version: "0.8.28",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+          viaIR: true,
+        },
       },
       production: {
         version: "0.8.28",
@@ -17,6 +24,7 @@ const config: HardhatUserConfig = {
             enabled: true,
             runs: 200,
           },
+          viaIR: true,
         },
       },
     },
@@ -35,6 +43,18 @@ const config: HardhatUserConfig = {
       chainType: "l1",
       url: configVariable("SEPOLIA_RPC_URL"),
       accounts: [configVariable("SEPOLIA_PRIVATE_KEY")],
+    },
+    worldChainSepolia: {
+      type: "http",
+      chainType: "l1",
+      url: configVariable("WORLD_CHAIN_SEPOLIA_RPC_URL"),
+      accounts: [configVariable("WORLD_CHAIN_SEPOLIA_PRIVATE_KEY")],
+    },
+    worldChainMainnet: {
+      type: "http",
+      chainType: "l1",
+      url: configVariable("WORLD_CHAIN_MAINNET_RPC_URL"),
+      accounts: [configVariable("WORLD_CHAIN_MAINNET_PRIVATE_KEY")],
     },
   },
 };

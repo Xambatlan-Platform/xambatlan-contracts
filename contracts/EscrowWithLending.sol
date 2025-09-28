@@ -376,7 +376,7 @@ contract EscrowWithLending is Ownable, ReentrancyGuard {
         (uint256 currentSupplyShares, , ) = morpho.position(escrow.marketId, address(this));
         
         // Obtener información del mercado para calcular el valor actual
-        (, , , , , ) = morpho.market(escrow.marketId);
+        // Nota: morpho.market() retorna información del mercado, pero necesitamos verificar la interfaz exacta
         
         // Calcular el valor actual basado en las shares
         // Nota: Esta es una aproximación, el valor exacto depende de la implementación de Morpho

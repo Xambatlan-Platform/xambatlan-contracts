@@ -10,11 +10,11 @@ const marketParams = {
   collateralToken: usdc,              // USDC como colateral (mismo token)
   oracle: "0x3A7bB36Ee3f3eE32A60e9f2b33c1e5f2E83ad766",
   irm: "0x870aC11D48B15DB9a138Cf899d20F13F79Ba00BC",
-  lltv: 950000000000000000,
+  lltv: 950000000000000000n,
 };
 
 export default buildModule("WorldIDVerifierModule", (m) => {
-  const owner = m.getAccount(1);
+  const owner = m.getAccount(0);
   const worldIdVerifier = m.contract("WorldIDVerifier", [owner]);
 
   const userRegistry = m.contract("UserRegistry", [owner, worldIdVerifier]);
